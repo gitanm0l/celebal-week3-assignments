@@ -1,0 +1,70 @@
+#1. Select All
+
+SELECT * FROM CITY;
+
+
+
+#2. Select By ID
+
+SELECT * FROM CITY WHERE ID = 1661;
+
+
+
+#3. Employee Names
+
+SELECT NAME FROM EMPLOYEE;
+
+
+
+#4. Japanese Cities' Attributes
+
+SELECT * FROM CITY WHERE COUNTRYCODE = 'JPN';
+
+
+
+
+#5. Weather Observation Station 1
+
+SELECT CITY, STATE FROM STATION;
+
+
+
+#6. Weather Observation Station 3
+
+SELECT DISTINCT CITY FROM STATION WHERE ID % 2 = 0;
+
+
+
+#7. Weather Observation Station 4
+
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;
+
+
+
+
+#8. Weather Observation Station 5
+
+SELECT CITY, LENGTH(CITY) FROM STATION
+ORDER BY LENGTH(CITY), CITY
+LIMIT 1;
+
+SELECT CITY, LENGTH(CITY) FROM STATION
+ORDER BY LENGTH(CITY) DESC, CITY
+LIMIT 1;
+
+
+
+
+#9. Average Population
+
+SELECT FLOOR(AVG(POPULATION)) FROM CITY;
+
+
+
+
+#10. Average Population of Each Continent
+
+SELECT CONTINENT, FLOOR(AVG(CITY.POPULATION)) 
+FROM CITY
+JOIN COUNTRY ON CITY.COUNTRYCODE = COUNTRY.CODE
+GROUP BY CONTINENT;
